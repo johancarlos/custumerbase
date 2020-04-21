@@ -18,7 +18,7 @@ public class CustomerBaseTest {
 	private List<Customer> customers = new ArrayList<Customer>();
 	private CustomerBase customerBase = new CustomerBase();
 	private final FindByLastName findByLastName = new FindByLastName();
-
+	private final FindFirstAndLastName findByFirstAndLastName = new FindFirstAndLastName();
 
 
 	@Before
@@ -37,7 +37,7 @@ public class CustomerBaseTest {
 
 	@Test
 	public void findByFirstAndLastName() throws Exception {
-		List<Customer> found = customerBase.findByFirstAndLastName("Alice", "Rossi");
+		List<Customer> found = findByFirstAndLastName.find(customers, alice);
 		assertThat(found, is(asList(alice)));
 	}
 
