@@ -3,21 +3,12 @@ import java.util.*;
 
 
 public class CustomerBase {
+	
 
-	private List<Customer> customers = new ArrayList<Customer>();
+	List<Customer> customers = new ArrayList<Customer>();
 
 	public void add(Customer customer) {
 		customers.add(customer);
-	}
-
-	public List<Customer> findByLastName(String lastName) {
-		List<Customer> result = new ArrayList<Customer>();
-		for (Customer customer : customers) {
-			if (customer.lastName().equals(lastName)) {
-				result.add(customer);
-			}
-		}
-		return result;
 	}
 
 	public List<Customer> findByFirstAndLastName(String firstName, String lastName) {
@@ -38,6 +29,10 @@ public class CustomerBase {
 			}
 		}
 		return result;
+	}
+
+	public List<Customer> getCustomers() {
+		return customers;
 	}
 
 }

@@ -15,18 +15,23 @@ public class CustomerBaseTest {
 	private Customer bob = new Customer("Bob", "Rossi", 20000);
 	private Customer charlie = new Customer("Charlie", "Bianchi", 30000);
 
+	private List<Customer> customers = new ArrayList<Customer>();
 	private CustomerBase customerBase = new CustomerBase();
+	private final FindByLastName findByLastName = new FindByLastName();
+
+
 
 	@Before
 	public void setUp() throws Exception {
 		customerBase.add(alice);
 		customerBase.add(bob);
 		customerBase.add(charlie);
+		customers = customerBase.getCustomers();
 	}
 
 	@Test
 	public void findByLastName() throws Exception {
-		List<Customer> found = customerBase.findByLastName("Rossi");
+		List<Customer> found = findByLastName.find(customers,alice);
 		assertThat(found, is(asList(alice, bob)));
 	}
 
