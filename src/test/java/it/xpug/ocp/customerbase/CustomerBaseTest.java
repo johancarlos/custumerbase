@@ -19,7 +19,7 @@ public class CustomerBaseTest {
 	private CustomerBase customerBase = new CustomerBase();
 	private final FindByLastName findByLastName = new FindByLastName();
 	private final FindFirstAndLastName findByFirstAndLastName = new FindFirstAndLastName();
-
+	private final FindByCreditGreaterThan findByCreditGreaterThan = new FindByCreditGreaterThan();
 
 	@Before
 	public void setUp() throws Exception {
@@ -43,7 +43,7 @@ public class CustomerBaseTest {
 
 	@Test
 	public void findWithCreditGreaterThan() throws Exception {
-		List<Customer> found = customerBase.findByCreditGreaterThan(20000);
+		List<Customer> found = findByCreditGreaterThan.find(customers, bob);
 		assertThat(found, is(asList(charlie)));
 	}
 
